@@ -56,7 +56,6 @@ class Transaction(models.Model):
    transaction_type = models.CharField(max_length=10,choices=transaction_choices,null=True)
    transaction_charge = models.IntegerField(null=True)
    transaction_date = models.DateTimeField(default=timezone.now)
-   receipt = models.OneToOneField('Receipt', on_delete=models.CASCADE,related_name='transaction_receipt')
    transaction_origin = models.ForeignKey('Account', on_delete = models.CASCADE,related_name='transaction_origin_account')
    transaction_destination = models.ForeignKey('Thirdparty', on_delete = models.CASCADE,related_name='transaction_destination_account')
  
