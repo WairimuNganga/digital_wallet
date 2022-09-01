@@ -25,6 +25,8 @@ class Currency(models.Model):
    symbol=models.CharField(max_length=5,null=True)
    amount = models.IntegerField(null=True)
  
+
+
 class Wallet(models.Model):
    balance = models.IntegerField(null=True)
    customer = models.ForeignKey('Customer',on_delete=models.CASCADE,related_name='wallet_customer')
@@ -33,6 +35,8 @@ class Wallet(models.Model):
    date = models.DateTimeField(default=timezone.now)
    status = models.CharField(max_length=20,null=True)
    currency = models.ForeignKey('Currency',on_delete=models.CASCADE,related_name='wallet_currency')
+
+   
  
 class ThirdParty(models.Model):
    account = models.ForeignKey('Account', on_delete = models.CASCADE,related_name='thirdparty_account')
