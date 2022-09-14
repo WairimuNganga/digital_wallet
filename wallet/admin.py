@@ -22,7 +22,7 @@ class ThirdPartyAdmin(admin.ModelAdmin):
 admin.site.register(ThirdParty,ThirdPartyAdmin)
 
 class ReceiptAdmin(admin.ModelAdmin):
-   list_display = ('receipt_type','bill_number','receipt_file','transaction','receipt_date')
+   list_display = ('receipt_type','bill_number','transaction','receipt_date')
    search_fields = ('receipt-type','transaction','receipt_date')
 admin.site.register(Receipt,ReceiptAdmin)
 

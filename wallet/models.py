@@ -5,7 +5,7 @@ from django.utils import timezone
 class Customer(models.Model):
    first_name = models.CharField(max_length=25,null=True )
    last_name = models.CharField(max_length=25,null=True )
-   address = models.TextField(null=True )
+   address = models.CharField(max_length=50,null=True )
    email = models.EmailField(null=True,max_length=50)
    phone_number = models.CharField(max_length=15,null=True )
    gender_choices = (
@@ -17,7 +17,7 @@ class Customer(models.Model):
    password = models.IntegerField(null=True)
    country = models.CharField(max_length=15,null=True)
    id_number = models.IntegerField(null=True)
-   profile_picture = models.ImageField(null = True,upload_to = 'profile_picture/')
+   # profile_picture = models.ImageField(null = True,upload_to = 'profile_picture/')
    date_of_registration = models.DateTimeField(default=timezone.now)
  
 class Currency(models.Model):
@@ -31,7 +31,7 @@ class Wallet(models.Model):
    balance = models.IntegerField(null=True)
    customer = models.ForeignKey('Customer',on_delete=models.CASCADE,related_name='wallet_customer')
    amount = models.IntegerField(null=True)
-   pin = models.TextField(max_length=4,null=True)
+   pin = models.CharField(max_length=4,null=True)
    date = models.DateTimeField(default=timezone.now)
    status = models.CharField(max_length=20,null=True)
    currency = models.ForeignKey('Currency',on_delete=models.CASCADE,related_name='wallet_currency')
@@ -49,7 +49,7 @@ class Receipt(models.Model):
    receipt_date = models.DateField(null=True)
    bill_number = models.IntegerField(null=True)
    transaction = models.OneToOneField('Transaction',on_delete = models.CASCADE,related_name='receipt_transaction')
-   receipt_file = models.FileField(upload_to='receipt_file/')
+   # receipt_file = models.FileField(upload_to='receipt_file/')
  
 class Transaction(models.Model):
    transaction_code = models.CharField(max_length=15,null=True)
