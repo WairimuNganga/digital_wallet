@@ -32,6 +32,9 @@
           <th scope="col">
             Gender
           </th>
+          <th scope="col">
+            Profile
+          </th>
         </tr>
       </thead>
 
@@ -45,8 +48,8 @@
           <td>{{ customer.email}}</td>
           <td>{{customer.phone_number}}</td>
           <td>{{customer.id_number}}</td>
-          <td>{{customer.gender_choices}}</td>
-
+          <td>{{customer.gender}}</td>
+          <td><a href="{%url 'customer_profile' id=customer.id%}"></a></td>
         </tr>
         {% endfor %}
       </tbody>
