@@ -29,6 +29,8 @@
               <th scope="col">Amount</th>
               <th scope="col">Currency</th>
               <th scope="col">Status</th>
+             <th scope="col">Profile</th>
+
             </tr>
           </thead>
     
@@ -42,6 +44,8 @@
               <td>{{ wallet.amount}}</td>
               <td>{{ wallet.currency}}</td>
               <td>{{ wallet.status}}</td>
+              <td><a href="{% url 'wallet_profile' id=wallet.id %}">View Profile</a></td>
+
             </tr>
             {% endfor %}
           </tbody>

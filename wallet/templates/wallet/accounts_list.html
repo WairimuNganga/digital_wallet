@@ -23,6 +23,8 @@
           <th scope="col">Account Number</th>
           <th scope="col">Account Type</th>
           <th scope="col">Balance</th>
+          <th scope="col">Profile</th>
+
         </tr>
       </thead>
 
@@ -35,6 +37,8 @@
           <td>{{ account.account_number}}</td>
           <td>{{ account.account_type}}</td>
           <td>{{ account.balance}}</td>
+          <td><a href="{%url 'account_profile' id=account.id%}">View Profile</a></td>
+
         </tr>
         {% endfor %}
       </tbody>

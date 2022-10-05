@@ -30,6 +30,9 @@
           <th scope="col">
             Transaction Receipt
           </th>
+          <th scope="col">
+            View Profile
+          </th>
         </tr>
       </thead>
 
@@ -43,6 +46,8 @@
           <td>{{ receipt.bill_number}}</td>
           <td>{{ receipt.transaction}}</td>
           <td>{{ receipt.receipt_file}}</td>
+          <td><a href="{%url 'receipt_profile' id=receipt.id%}">View Profile</a></td>
+
 
         </tr>
         {% endfor %}
