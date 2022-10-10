@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.utils import timezone
 
@@ -82,11 +83,11 @@ class Loan(models.Model):
    wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE,related_name='loan_wallet')
    amount = models.IntegerField(null=True)
    loan_term = models.IntegerField(null=True)
-   interest_rate = models.IntegerField(null=True)
+   interest_rate = models.DecimalField(max_digits=2,decimal_places=2,null=True)
    loan_balance = models.IntegerField(null=True)
    guarantor = models.ForeignKey('Account', on_delete=models.CASCADE,related_name='loan_guarantor')
    loan_date = models.DateTimeField(default=timezone.now)
-   due_date = models.IntegerField(null=True)
+   # due_date = models.DateTimeField(null=True)
  
 class Reward(models.Model):
    transaction = models.ForeignKey('Transaction',on_delete=models.CASCADE,related_name='reward_transaction')

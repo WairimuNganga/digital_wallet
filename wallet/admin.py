@@ -42,7 +42,7 @@ class NotificationAdmin(admin.ModelAdmin):
 admin.site.register(Notification,NotificationAdmin)
 
 class LoanAdmin(admin.ModelAdmin):
-   list_display = ('wallet','amount','loan_term','loan_date','due_date','guarantor','interest_rate')
+   list_display = ('wallet','amount','loan_term','loan_date','guarantor','interest_rate')
    search_fields = ('amount','wallet','interest_rate')
 admin.site.register(Loan,LoanAdmin)
 

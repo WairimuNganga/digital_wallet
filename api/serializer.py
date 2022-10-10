@@ -9,11 +9,34 @@ class Customer_Serializer(serializers.ModelSerializer):
 class Wallet_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Wallet
-        fields =("balance","customer",)
-# balance = models.IntegerField(null=True)
-#    customer = models.ForeignKey('Customer',on_delete=models.CASCADE,related_name='wallet_customer')
-#    amount = models.IntegerField(null=True)
-#    pin = models.CharField(max_length=4,null=True)
-#    date = models.DateTimeField(default=timezone.now)
-#    status = models.CharField(max_length=20,null=True)
-#    currenc
+        fields =("balance","customer","amount","date","status")
+
+class Account_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = ("wallet","balance","account_type")
+
+class Card_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = ("card_type","cardHolder_name","cardholder_number","wallet","issuer","expiry_date")
+
+class Transaction_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ("transaction_type","transaction_charge","transaction_destination","transaction_amount","transaction_date")
+
+class Loan_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Loan
+        fields = ("wallet","amount","loan_term","due_date","guarantor","interest_rate")
+
+class Receipt_Serilizer(serializers.ModelSerializer):
+    class Meta:
+        model = Receipt
+        fields = ("receipt_type","transaction","bill_number","receipt_date")
+
+class Notification_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notification
+        fields = ("recipient","message","date","notification_status")
